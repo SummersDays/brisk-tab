@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { ReactElement } from "react";
+import { ReactElement, useMemo } from "react";
 
 import BookmarkGroupView from "@/components/bookmark-group-view";
 import EmptyPlaceholder from "@/components/empty-placeholder";
@@ -14,6 +14,10 @@ const HomePage: NextPageWithLayout = () => {
   const { bookmarks } = useBookmarks();
   const { groups } = useBookmarkGroups();
 
+  const contentfulGroups = useMemo(() => {
+    return groups.filter((group) => group.bookmarks.length > 0);
+  }, [groups]);
+
   return (
     <section className="px-8 flex flex-col h-full overflow-x-auto">
       {bookmarks.length === 0 ? (
@@ -22,7 +26,7 @@ const HomePage: NextPageWithLayout = () => {
           desc="You can import bookmarks from browser or create a new one."
         />
       ) : (
-        groups.map((group) => (
+        contentfulGroups.map((group) => (
           <BookmarkGroupView key={group.name} group={group} />
         ))
       )}

@@ -1,0 +1,11 @@
+.container {
+  @apply mb-4;
+
+  .name {
+    @apply mt-2 mb-4 font-medium;
+  }
+
+  .list {
+    @apply flex flex-wrap gap-1;
+  }
+}
