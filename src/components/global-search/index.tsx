@@ -1,6 +1,7 @@
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
 import useBookmarks from "@/hooks/use-bookmarks";
+import { useGlobalSearch } from "@/hooks/use-global-search";
 import { Bookmark } from "@/types";
 import Input from "@/ui/input";
 
@@ -13,10 +14,11 @@ const KEY_ACTION: Record<string, (event: KeyboardEvent) => boolean> = {
 };
 
 export default function GlobalSearch() {
-  const [isShowSearch, setIsShowSearch] = useState(false);
   const [keyword, setKeyword] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const { bookmarks } = useBookmarks();
+  const { isOpen: isShowSearch, setIsOpen: setIsShowSearch } =
+    useGlobalSearch();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -37,7 +39,7 @@ export default function GlobalSearch() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [setIsShowSearch]);
 
   const results = useMemo<Bookmark[]>(() => {
     if (!keyword) {
