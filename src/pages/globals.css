@@ -1,5 +1,7 @@
 @layer reset, base, utilities, components;
 
+@import "@unocss/reset/tailwind-compat.css" layer(reset);
+
 @layer base {
   @unocss preflights, default;
 }

@@ -1,5 +1,3 @@
-import fs from "node:fs/promises";
-
 import {
   defineConfig,
   presetAttributify,
@@ -9,13 +7,6 @@ import {
 
 export default defineConfig({
   presets: [presetWind3(), presetAttributify(), presetIcons()],
-  preflights: [
-    {
-      layer: "reset",
-      getCSS: async () =>
-        fs.readFile("node_modules/@unocss/reset/tailwind-compat.css", "utf-8")
-    }
-  ],
   theme: {
     colors: {
       brand: {
