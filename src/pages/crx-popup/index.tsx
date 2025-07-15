@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { first } from "remeda";
 
 import useBookmarkGroups from "@/hooks/use-bookmark-groups";
 import useBookmarks from "@/hooks/use-bookmarks";
@@ -20,8 +21,8 @@ function CrxPopup() {
 
   useEffect(() => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      setName(tabs[0].title || "");
-      setUrl(tabs[0].url || "");
+      setName(first(tabs)?.title || "");
+      setUrl(first(tabs)?.url?.trim() || "");
     });
   }, []);
 
@@ -47,7 +48,10 @@ function CrxPopup() {
   };
 
   const handleAddBookmark = () => {
-    const count = addBookmarks([{ name, url }], group.id);
+    const count = addBookmarks(
+      [{ name: name.trim(), url: url.trim() }],
+      group.id
+    );
     if (count > 0) {
       setSuccessTip("Bookmark added.");
       setErrTip("");
