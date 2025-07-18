@@ -33,6 +33,9 @@ catalogs:
     unocss:
       specifier: ^66.3.3
       version: 66.3.3
+    zod:
+      specifier: ^4.0.5
+      version: 4.0.5
   infra:
     '@unocss/postcss':
       specifier: ^66.3.3
@@ -138,7 +141,7 @@ importers:
         specifier: catalog:frontend
         version: 2.25.0
       zod:
-        specifier: ^4.0.5
+        specifier: catalog:frontend
         version: 4.0.5
     devDependencies:
       '@eslint-react/eslint-plugin':

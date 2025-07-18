@@ -9,6 +9,7 @@ catalogs:
     "react-dom": "^19.1.0"
     "remeda": "^2.25.0"
     "unocss": "^66.3.3"
+    "zod": "^4.0.5"
   type:
     "@types/chrome": "^0.1.0"
     "@types/node": "^20.19.7"
