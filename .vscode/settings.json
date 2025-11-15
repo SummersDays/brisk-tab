@@ -21,7 +21,9 @@
   "eslint.validate": [
     "css",
     "json",
-    "html"
+    "html",
+    "typescript",
+    "typescriptreact"
   ],
   "css.customData": [
     ".vscode/unocss.json"

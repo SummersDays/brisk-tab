@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "clsx": "catalog:frontend",
+    "foxact": "catalog:frontend",
     "jotai": "catalog:frontend",
     "next": "catalog:frontend",
     "react": "catalog:frontend",
