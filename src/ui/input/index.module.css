@@ -1,17 +1,21 @@
-@layer components {
-  .container {
-    @apply relative flex flex-col mb-2;
+.container {
+  @apply relative flex flex-col mb-2;
+}
 
-    label {
-      @apply ml-1 text-[14px] mb-1 op-50;
-    }
+.container label {
+  @apply ml-1 text-[14px] mb-1 op-50;
+}
 
-    input {
-      @apply focus:outline-0;
-      @apply py-1 px-2 text-[14px];
-      @apply w-full bg-brand-background;
-      @apply border-1 rounded-sm transition-all;
-      @apply hover:ring-1 hover:ring-brand-primary hover:bg-brand-secondary;
-    }
-  }
+.container input {
+  @apply py-1 px-2 text-[14px];
+  @apply w-full bg-brand-background;
+  @apply border-1 rounded-sm transition-all;
+}
+
+.container input:hover {
+  @apply ring-1 ring-brand-primary bg-brand-secondary;
+}
+
+.container input:focus {
+  @apply outline-none ring-1 ring-brand-primary;
 }
