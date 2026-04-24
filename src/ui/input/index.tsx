@@ -2,8 +2,7 @@ import { KeyboardEventHandler, Ref } from "react";
 
 import styles from "./index.module.css";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   field: string;
   ref?: Ref<HTMLInputElement>;

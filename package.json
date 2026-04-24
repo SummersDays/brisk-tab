@@ -4,16 +4,17 @@
   "version": "0.5.0",
   "description": "An alt blank page for your browser",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@10.13.1",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.19.0"
   },
   "scripts": {
-    "dev": "next dev",
-    "build:app": "next build",
-    "build:crx": "CRX_BUILD=1 CRX_DIST=dist-crx next build && CRX_DIST=dist-crx jiti scripts/post-build-crx.ts",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "vite",
+    "build:app": "vite build",
+    "build:crx": "CRX_BUILD=1 vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
     "postinstall": "simple-git-hooks"
   },
   "simple-git-hooks": {
@@ -21,42 +22,36 @@
   },
   "dependencies": {
     "clsx": "catalog:frontend",
+    "foxact": "catalog:frontend",
     "jotai": "catalog:frontend",
-    "next": "catalog:frontend",
     "react": "catalog:frontend",
     "react-dom": "catalog:frontend",
     "remeda": "catalog:frontend",
     "zod": "catalog:frontend"
   },
   "devDependencies": {
+    "@crxjs/vite-plugin": "catalog:infra",
     "@eslint-react/eslint-plugin": "catalog:lint",
     "@iconify-json/fluent": "catalog:frontend",
-    "@next/eslint-plugin-next": "catalog:lint",
     "@types/chrome": "catalog:type",
     "@types/node": "catalog:type",
     "@types/react": "catalog:type",
     "@types/react-dom": "catalog:type",
     "@typescript-eslint/eslint-plugin": "catalog:lint",
     "@typescript-eslint/parser": "catalog:lint",
-    "@unocss/postcss": "catalog:infra",
     "@unocss/reset": "catalog:frontend",
+    "@vitejs/plugin-react": "catalog:infra",
     "@zjutjh/eslint-config": "catalog:lint",
     "eslint": "catalog:lint",
-    "eslint-config-next": "catalog:lint",
     "eslint-config-prettier": "catalog:lint",
     "eslint-plugin-format": "catalog:lint",
     "eslint-plugin-prettier": "catalog:lint",
     "eslint-plugin-react-hooks": "catalog:lint",
     "eslint-plugin-react-refresh": "catalog:lint",
-    "glob": "catalog:infra",
-    "jiti": "catalog:infra",
-    "postcss-flexbugs-fixes": "catalog:infra",
-    "postcss-import": "catalog:infra",
-    "postcss-preset-env": "catalog:infra",
     "prettier": "catalog:lint",
     "simple-git-hooks": "catalog:infra",
-    "tsdown": "catalog:infra",
     "typescript": "catalog:infra",
-    "unocss": "catalog:frontend"
+    "unocss": "catalog:frontend",
+    "vite": "catalog:infra"
   }
 }

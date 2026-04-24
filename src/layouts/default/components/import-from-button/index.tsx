@@ -28,7 +28,7 @@ export default function ImportFromButton() {
   return (
     <>
       <div className="brand-btn" onClick={() => setIsOpenImportWayModal(true)}>
-        <div className="i-fluent-document-arrow-up-20-regular" />
+        <div className="i-fluent-document-one-page-add-20-regular" />
       </div>
       <SelectImportSourceModal
         isOpen={isOpenImportWayModal}

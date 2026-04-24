@@ -9,7 +9,7 @@ import Button from "@/ui/button";
 
 import styles from "./index.module.css";
 
-function CrxPopup() {
+export default function CrxPopup() {
   const { addBookmarks } = useBookmarks();
   const [errTip, setErrTip] = useState("");
   const [successTip, setSuccessTip] = useState("");
@@ -84,7 +84,3 @@ function CrxPopup() {
     </section>
   );
 }
-
-const CrxPopupPage = process.env.CRX_BUILD === "1" ? CrxPopup : () => null;
-
-export default CrxPopupPage;

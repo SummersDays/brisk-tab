@@ -1,18 +1,10 @@
-import pluginNext from "@next/eslint-plugin-next";
 import zjutjh from "@zjutjh/eslint-config";
 
-export default zjutjh(
-  {
-    prettier: {
-      prettierSelfOptions: {
-        printWidth: 80
-      }
-    },
-    ignores: [".next", "out", "dist-crx"]
-  },
-  {
-    plugins: {
-      "@next/next": pluginNext
+export default zjutjh({
+  prettier: {
+    prettierSelfOptions: {
+      printWidth: 80
     }
-  }
-);
+  },
+  ignores: ["dist", "dist-crx", "node_modules"]
+});
