@@ -19,10 +19,10 @@ interface SelectImportSourceModalProps {
 const IMPORT_SOURCE_OPTIONS: Array<SelectOption> = [
   {
     label: `From current browser bookmarks${
-      process.env.CRX_BUILD !== "1" ? " (Only for extension version)" : ""
+      import.meta.env.CRX_BUILD !== "1" ? " (Only for extension version)" : ""
     }`,
     value: "browser",
-    isDisabled: process.env.CRX_BUILD !== "1"
+    isDisabled: import.meta.env.CRX_BUILD !== "1"
   },
   {
     label: "From bookmark export file",
@@ -43,7 +43,7 @@ export default function SelectImportSourceModal({
 
   // TODO: is firefox compatible?
   const handleParseRuntimeBookmarks = async () => {
-    if (process.env.CRX_BUILD !== "1") {
+    if (import.meta.env.CRX_BUILD !== "1") {
       return;
     }
 

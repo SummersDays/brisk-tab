@@ -1,6 +1,9 @@
-namespace NodeJS {
-  interface ProcessEnv {
-    CRX_BUILD?: string;
-    CRX_DIST?: string;
-  }
+/// <reference types="vite/client" />
+
+interface ImportMetaEnv {
+  readonly CRX_BUILD?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

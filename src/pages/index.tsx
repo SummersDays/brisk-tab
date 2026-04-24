@@ -1,5 +1,4 @@
-import Head from "next/head";
-import { ReactElement, useMemo } from "react";
+import { useMemo } from "react";
 
 import BookmarkGroupView from "@/components/bookmark-group-view";
 import EditBookmarkModal from "@/components/edit-bookmark-modal";
@@ -8,11 +7,8 @@ import GlobalSearch from "@/components/global-search";
 import useBookmarkGroups from "@/hooks/use-bookmark-groups";
 import useBookmarks from "@/hooks/use-bookmarks";
 import { useEditBookmarkModal } from "@/hooks/use-edit-bookmark-modal";
-import DefaultLayout from "@/layouts/default";
 
-import { NextPageWithLayout } from "./_app";
-
-const HomePage: NextPageWithLayout = () => {
+export default function HomePage() {
   const { bookmarks, updateBookmarks, removeBookmarks } = useBookmarks();
   const { groups } = useBookmarkGroups();
   const { isOpenBookmarkModal, toEditBookmark, closeEditBookmarkModal } =
@@ -36,7 +32,7 @@ const HomePage: NextPageWithLayout = () => {
       )}
       <GlobalSearch />
       <EditBookmarkModal
-        key={`${toEditBookmark?.groupId}-${toEditBookmark?.url}`}
+        key={`${toEditBookmark?.groupId ?? ""}-${toEditBookmark?.url ?? ""}`}
         isOpen={isOpenBookmarkModal}
         onClose={closeEditBookmarkModal}
         onUpdate={(newBookmark) => {
@@ -55,18 +51,4 @@ const HomePage: NextPageWithLayout = () => {
       />
     </section>
   );
-};
-
-HomePage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <>
-      <Head>
-        <title>Brisk Tab</title>
-        <meta name="description" content="An alt blank page for your browser" />
-      </Head>
-      <DefaultLayout>{page}</DefaultLayout>
-    </>
-  );
-};
-
-export default HomePage;
+}

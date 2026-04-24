@@ -18,14 +18,6 @@
   "[html]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  "eslint.validate": [
-    "css",
-    "json",
-    "html",
-    "typescript",
-    "typescriptreact"
-  ],
-  "css.customData": [
-    ".vscode/unocss.json"
-  ]
+  "eslint.validate": ["css", "json", "html", "typescript", "typescriptreact"],
+  "css.customData": [".vscode/unocss.json"]
 }

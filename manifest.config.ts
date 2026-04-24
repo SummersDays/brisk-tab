@@ -1,7 +1,9 @@
 /* eslint-disable camelcase */
+import { defineManifest } from "@crxjs/vite-plugin";
+
 import { description, name, version } from "./package.json";
 
-const manifest: Readonly<chrome.runtime.ManifestV3> = {
+export default defineManifest({
   manifest_version: 3,
   name,
   version,
@@ -14,8 +16,7 @@ const manifest: Readonly<chrome.runtime.ManifestV3> = {
   },
   permissions: ["activeTab", "scripting", "bookmarks"],
   background: {
-    service_worker: "background.mjs"
+    service_worker: "chrome/index.ts",
+    type: "module"
   }
-};
-
-export default manifest;
+});
